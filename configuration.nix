@@ -17,6 +17,7 @@
   boot.initrd.luks.devices."luks-1f448602-b4ea-4d88-b633-91ac11646e8f".device = "/dev/disk/by-uuid/1f448602-b4ea-4d88-b633-91ac11646e8f";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.nameservers = [ "1.1.1.1" ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -93,19 +94,72 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = [
+  ];
+	
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    neovim
-    git
-    wget
+  environment.systemPackages = [
+
+    # GUI Uitls
+    # zathura
+
+    # Multimedia
+    pkgs.mpv
+    pkgs.gimp
+    # pkgs.ffmpeg
+
+    # Dev and standard utils
+    pkgs.neovim
+    pkgs.yadm
+    pkgs.git
+    pkgs.gh
+    pkgs.wget
+    pkgs.htop-vim
+    pkgs.csvlens	
+    pkgs.fd
+    pkgs.dust
+
+    pkgs.stdenv
+
+    # ZSH 
+    pkgs.zsh
+    pkgs.zsh-autosuggestions
+    pkgs.zsh-syntax-highlighting
+    pkgs.zsh-vi-mode
+    pkgs.starship
+
+    pkgs.yazi
+    pkgs.ripgrep
+    pkgs.fastfetch
+    pkgs.tmux
+    pkgs.cachix
+    pkgs.cemu
+    pkgs.bottles
+
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    substituters = [
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+    ];
 
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
