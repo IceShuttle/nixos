@@ -38,9 +38,11 @@ programs.zsh = {
 	tmux="tmux -u";
     };
 
-    histSize = 10000;
+    histSize = 5000;
     histFile = "$HOME/.zsh_history";
-    promptInit = "eval \"$(starship init zsh)\"";
+    promptInit = "
+    eval \"$(${pkgs.zoxide}/bin/zoxide init zsh)\";  
+    eval \"$(${pkgs.starship}/bin/starship init zsh)\"";
     setOptions = [
       "HIST_IGNORE_ALL_DUPS"
     ];
