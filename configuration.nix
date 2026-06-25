@@ -117,11 +117,12 @@
     # Multimedia
     pkgs.mpv
     pkgs.gimp
-    # pkgs.ffmpeg
+    pkgs.ffmpeg
 
     # Dev and standard utils
     pkgs.neovim
     pkgs.yadm
+    pkgs.lazygit
     pkgs.git
     pkgs.gh
     pkgs.wget
@@ -135,6 +136,9 @@
     pkgs.zoxide
     pkgs.lsd
     pkgs.stdenv
+    pkgs.gcc
+    pkgs.unzip
+    pkgs.zip
 
     # ZSH 
     pkgs.zsh
@@ -146,8 +150,20 @@
     pkgs.cemu
     pkgs.bottles
 
+
+
     pkgs.cachix
   ];
+
+  fonts.packages = with pkgs; [
+    font-awesome
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-mono
+    nerd-fonts.fira-code
+  ];
+
+
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings = {
     substituters = [
