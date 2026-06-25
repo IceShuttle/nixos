@@ -129,7 +129,11 @@
     pkgs.csvlens	
     pkgs.fd
     pkgs.dust
-
+    pkgs.ripgrep
+    pkgs.fastfetch
+    pkgs.tmux
+    pkgs.zoxide
+    pkgs.lsd
     pkgs.stdenv
 
     # ZSH 
@@ -139,27 +143,32 @@
     pkgs.zsh-vi-mode
     pkgs.starship
 
-    pkgs.yazi
-    pkgs.ripgrep
-    pkgs.fastfetch
-    pkgs.tmux
-    pkgs.cachix
     pkgs.cemu
     pkgs.bottles
 
+    pkgs.cachix
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings = {
     substituters = [
       "https://cache.nixos.org"
-      "https://nix-community.cachix.org"
+      # "https://nix-community.cachix.org"
     ];
 
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      # "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "weekly" ]; 
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
