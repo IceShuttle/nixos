@@ -107,8 +107,6 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [
-    pkgs.zsh-autosuggestions
-    pkgs.zsh-syntax-highlighting
   ];
 	
   # Allow unfree packages
@@ -140,6 +138,7 @@
 
     # Dev and standard utils
     pkgs.tealdeer
+    pkgs.starship
     pkgs.neovim
     pkgs.yadm
     pkgs.lazygit
@@ -163,14 +162,10 @@
     pkgs.gnumake
     pkgs.wl-clipboard
 
-    # ZSH 
-    pkgs.zsh
-    pkgs.starship
-
     pkgs.cemu
     pkgs.bottles
 
-    pkgs.cachix
+    # pkgs.cachix
   ];
 
   environment.sessionVariables = {

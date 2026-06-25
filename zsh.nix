@@ -40,9 +40,11 @@ programs.zsh = {
 
     histSize = 5000;
     histFile = "$HOME/.zsh_history";
-    promptInit = "
-    eval \"$(${pkgs.zoxide}/bin/zoxide init zsh)\";  
-    eval \"$(${pkgs.starship}/bin/starship init zsh)\"";
+    interactiveShellInit = "
+	    source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh;
+	    eval \"$(${pkgs.zoxide}/bin/zoxide init zsh)\";  
+	    eval \"$(${pkgs.starship}/bin/starship init zsh)\";
+    ";
     setOptions = [
       "HIST_IGNORE_ALL_DUPS"
     ];
