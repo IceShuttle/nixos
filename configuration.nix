@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./zsh.nix
     ];
 
   # Bootloader.
@@ -25,7 +26,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -102,17 +106,31 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [
+    pkgs.zsh-autosuggestions
+    pkgs.zsh-syntax-highlighting
   ];
 	
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs.niri.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = [
+    #Environment
+    pkgs.niri
+    pkgs.noctalia-shell
+    pkgs.quickshell
+    pkgs.mpvpaper
+    pkgs.awww
+    pkgs.foot
+    pkgs.xwayland-satellite
 
-    # GUI Uitls
-    # zathura
+    # Optional Uitls
+    pkgs.fastfetch
+    pkgs.wezterm
+    pkgs.csvlens	
 
     # Multimedia
     pkgs.mpv
@@ -120,6 +138,7 @@
     pkgs.ffmpeg
 
     # Dev and standard utils
+    pkgs.tealdeer
     pkgs.neovim
     pkgs.yadm
     pkgs.lazygit
@@ -127,33 +146,36 @@
     pkgs.gh
     pkgs.wget
     pkgs.htop-vim
-    pkgs.csvlens	
+    pkgs.yazi
     pkgs.fd
     pkgs.dust
     pkgs.ripgrep
-    pkgs.fastfetch
     pkgs.tmux
     pkgs.zoxide
     pkgs.lsd
     pkgs.stdenv
-    pkgs.gcc
     pkgs.unzip
     pkgs.zip
+    pkgs.fzf
+    pkgs.gcc
+    pkgs.ninja
+    pkgs.gnumake
+    pkgs.wl-clipboard
 
     # ZSH 
     pkgs.zsh
-    pkgs.zsh-autosuggestions
-    pkgs.zsh-syntax-highlighting
-    pkgs.zsh-vi-mode
     pkgs.starship
 
     pkgs.cemu
     pkgs.bottles
 
-
-
     pkgs.cachix
   ];
+
+  environment.sessionVariables = {
+  CMAKE_GENERATOR="Ninja";
+  NOCTALIA_CONFIG_DIR = "$HOME/.config/noctalia";
+  };
 
   fonts.packages = with pkgs; [
     font-awesome
