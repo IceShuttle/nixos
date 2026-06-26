@@ -28,7 +28,7 @@
         vimAlias = true;
         undoFile.enable = true;
         statusline.lualine.enable = true;
-        filetree.neo-tree.enable = true;
+        filetree.nvimTree.enable = true;
         tabline.nvimBufferline.enable = true;
         git.enable = true;
         autocomplete.blink-cmp = {
