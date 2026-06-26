@@ -1,15 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./zsh.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./zsh.nix
+    # ./nvf.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -18,7 +20,7 @@
   boot.initrd.luks.devices."luks-1f448602-b4ea-4d88-b633-91ac11646e8f".device = "/dev/disk/by-uuid/1f448602-b4ea-4d88-b633-91ac11646e8f";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.nameservers = [ "1.1.1.1" ];
+  networking.nameservers = ["1.1.1.1"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -88,17 +90,16 @@
   users.users."shivang" = {
     isNormalUser = true;
     description = "Shivang";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  kdePackages.kate
-    #  thunderbird
+      #  kdePackages.kate
+      #  thunderbird
     ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
   programs.git.enable = true;
-
 
   programs.neovim = {
     enable = true;
@@ -108,7 +109,7 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = [
   ];
-	
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -129,7 +130,7 @@
     # Optional Uitls
     pkgs.fastfetch
     pkgs.wezterm
-    pkgs.csvlens	
+    pkgs.csvlens
 
     # Multimedia
     pkgs.mpv
@@ -165,12 +166,12 @@
     pkgs.cemu
     pkgs.bottles
 
-    # pkgs.cachix
+    pkgs.cachix
   ];
 
   environment.sessionVariables = {
-  CMAKE_GENERATOR="Ninja";
-  NOCTALIA_CONFIG_DIR = "$HOME/.config/noctalia";
+    CMAKE_GENERATOR = "Ninja";
+    NOCTALIA_CONFIG_DIR = "$HOME/.config/noctalia";
   };
 
   fonts.packages = with pkgs; [
@@ -180,18 +181,18 @@
     nerd-fonts.fira-code
   ];
 
-
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings = {
     substituters = [
       "https://cache.nixos.org"
-      # "https://nix-community.cachix.org"
+      "https://nix-community.cachix.org"
+      "https://nvf.cachix.org"
     ];
 
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      # "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "nvf.cachix.org-1:GMQWiUhZ6ux9D5CvFFMwnc2nFrUHTeGaXRlVBXo+naI="
     ];
   };
   nix.gc = {
@@ -201,7 +202,7 @@
   };
 
   nix.optimise.automatic = true;
-  nix.optimise.dates = [ "weekly" ]; 
+  nix.optimise.dates = ["weekly"];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -229,5 +230,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }
