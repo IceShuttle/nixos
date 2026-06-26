@@ -9,6 +9,7 @@
     # most settings are documented in the appendix
     settings = {
       vim = {
+        utility.smart-splits.enable = true;
         clipboard = {
           enable = true;
           providers.wl-copy.enable = true;
