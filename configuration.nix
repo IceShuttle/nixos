@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ./zsh.nix
     ./nvf.nix
+    ./tmux.nix
   ];
 
   # Bootloader.
