@@ -44,6 +44,7 @@
           enableFormat = true;
           nix.enable = true;
           rust.enable = true;
+          toml.enable = true;
           python.enable = true;
           json.enable = true;
           docker.enable = true;
