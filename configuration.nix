@@ -10,7 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./zsh.nix
-    # ./nvf.nix
+    ./nvf.nix
   ];
 
   # Bootloader.
