@@ -23,8 +23,7 @@
           enable = true;
           mappings.open = "<c-/>";
           lazygit.enable = true;
-         };
-        telescope.enable = true;
+        };
         viAlias = false;
         vimAlias = true;
         undoFile.enable = true;
@@ -36,13 +35,35 @@
           enable = true;
           friendly-snippets.enable = true;
         };
+        telescope = {
+          enable = true;
+          mappings = {
+            lspDocumentSymbols = "<leader>ss";
+            lspReferences = "<leader>gr";
+          };
+        };
+        diagnostics = {
+          enable = true;
+        };
         lsp = {
           enable = true;
+          formatOnSave = true;
+          inlayHints.enable = true;
+          lightbulb.enable = true;
+          mappings = {
+            hover = "K";
+            goToDefinition = "<leader>gd";
+            goToDeclaration = "<leader>gD";
+            renameSymbol = "<leader>cr";
+          };
         };
         languages = {
           enableTreesitter = true;
           enableFormat = true;
-          nix.enable = true;
+          nix = {
+            enable = true;
+            lsp.servers = ["nixd"];
+          };
           rust.enable = true;
           toml.enable = true;
           python.enable = true;
