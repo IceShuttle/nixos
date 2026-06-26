@@ -16,9 +16,11 @@
         };
         opts = {
           mouse = "a";
+          shell = "${pkgs.zsh}/bin/zsh";
         };
         terminal.toggleterm = {
           enable = true;
+          mappings.open = "<c-/>";
           lazygit.enable = true;
          };
         telescope.enable = true;
