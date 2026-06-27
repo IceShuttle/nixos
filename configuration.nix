@@ -149,7 +149,7 @@
     pkgs.wget
 
     # Dev and standard utils
-    pkgs.zed
+    pkgs.neovide
     pkgs.tealdeer
     pkgs.bat
     pkgs.starship
