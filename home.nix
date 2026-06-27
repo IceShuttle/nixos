@@ -13,7 +13,6 @@
 
   home.packages = [
     # pkgs.magnetic-catppuccin-gtk
-    pkgs.bat
   ];
 
   home.file = {

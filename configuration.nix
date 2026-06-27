@@ -12,6 +12,7 @@
     ./modules/zsh.nix
     ./modules/nvf.nix
     ./modules/tmux.nix
+    ./modules/theme.nix
   ];
 
   # Bootloader.
@@ -103,6 +104,7 @@
   # Install firefox.
   programs.firefox.enable = true;
   programs.git.enable = true;
+  programs.yazi.enable = true;
 
   programs.neovim = {
     enable = true;
@@ -142,6 +144,7 @@
 
     # Dev and standard utils
     pkgs.tealdeer
+    pkgs.bat
     pkgs.starship
     pkgs.yadm
     pkgs.lazygit
