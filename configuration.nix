@@ -9,9 +9,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./zsh.nix
-    ./nvf.nix
-    ./tmux.nix
+    ./modules/zsh.nix
+    ./modules/nvf.nix
+    ./modules/tmux.nix
   ];
 
   # Bootloader.
@@ -59,6 +59,8 @@
   services.displayManager.sddm.enable = true;
   # services.desktopManager.plasma6.enable = true;
 
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -115,7 +117,6 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.niri.enable = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = [
@@ -123,6 +124,7 @@
     pkgs.niri
     pkgs.noctalia-shell
     pkgs.quickshell
+    pkgs.nautilus
     pkgs.mpvpaper
     pkgs.awww
     pkgs.foot
@@ -141,7 +143,6 @@
     # Dev and standard utils
     pkgs.tealdeer
     pkgs.starship
-    pkgs.neovim
     pkgs.yadm
     pkgs.lazygit
     pkgs.git
@@ -159,19 +160,14 @@
     pkgs.unzip
     pkgs.zip
     pkgs.fzf
-    pkgs.gcc
-    pkgs.ninja
-    pkgs.gnumake
     pkgs.wl-clipboard
 
     pkgs.cemu
     pkgs.bottles
-
-    pkgs.cachix
   ];
 
   environment.sessionVariables = {
-    CMAKE_GENERATOR = "Ninja";
+    SHELL = "${pkgs.zsh}/bin/zsh";
     NOCTALIA_CONFIG_DIR = "$HOME/.config/noctalia";
   };
 
