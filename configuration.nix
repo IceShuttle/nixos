@@ -145,7 +145,7 @@
     pkgs.zathura
 
     # Intenet Utils
-    pkgs.transmission
+    pkgs.transmission_4-gtk
     pkgs.wget
 
     # Dev and standard utils
