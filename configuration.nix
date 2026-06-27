@@ -141,6 +141,7 @@
     pkgs.mpv
     pkgs.gimp
     pkgs.ffmpeg
+    pkgs.feh
 
     # Dev and standard utils
     pkgs.tealdeer
