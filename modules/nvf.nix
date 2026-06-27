@@ -10,6 +10,7 @@
     settings = {
       vim = {
         utility.smart-splits.enable = true;
+        utility.oil-nvim.enable = true;
         clipboard = {
           enable = true;
           providers.wl-copy.enable = true;
@@ -24,16 +25,29 @@
           mappings.open = "<c-/>";
           lazygit.enable = true;
         };
+        keymaps = [
+          {
+            mode = "i"; # insert mode
+            key = "<C-p>";
+            action = ""; # This disables the keymap
+          }
+        ];
         viAlias = false;
         vimAlias = true;
+        searchCase = "smart";
         undoFile.enable = true;
         statusline.lualine.enable = true;
-        filetree.nvimTree.enable = true;
+        filetree.nvimTree = {
+          enable = true;
+          openOnSetup = false;
+        };
         tabline.nvimBufferline.enable = true;
         git.enable = true;
         autocomplete.blink-cmp = {
           enable = true;
           friendly-snippets.enable = true;
+          mappings.next = "<C-n>";
+          mappings.previous = "<C-p>";
         };
         telescope = {
           enable = true;

@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   ...
@@ -7,7 +8,9 @@
   # manage.
   home.username = "shivang";
   home.homeDirectory = "/home/shivang";
-  imports = [];
+  imports = [
+    inputs.nix-doom-emacs-unstraightened.homeModule
+  ];
 
   home.stateVersion = "26.05"; # Please read the comment before changing.
 
@@ -20,7 +23,11 @@
       "video/*" = ["mpv.desktop"];
     };
   };
-
+  services.emacs.enable = true;
+  programs.doom-emacs = {
+    enable = true;
+    doomDir = ./doom.d;
+  };
   home.packages = [
     # pkgs.magnetic-catppuccin-gtk
   ];
