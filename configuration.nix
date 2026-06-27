@@ -149,6 +149,7 @@
     pkgs.wget
 
     # Dev and standard utils
+    pkgs.zed
     pkgs.tealdeer
     pkgs.bat
     pkgs.starship
