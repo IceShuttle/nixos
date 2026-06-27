@@ -142,6 +142,11 @@
     pkgs.gimp
     pkgs.ffmpeg
     pkgs.feh
+    pkgs.zathura
+
+    # Intenet Utils
+    pkgs.transmission
+    pkgs.wget
 
     # Dev and standard utils
     pkgs.tealdeer
@@ -151,7 +156,6 @@
     pkgs.lazygit
     pkgs.git
     pkgs.gh
-    pkgs.wget
     pkgs.htop-vim
     pkgs.yazi
     pkgs.fd
