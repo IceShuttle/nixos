@@ -11,6 +11,16 @@
 
   home.stateVersion = "26.05"; # Please read the comment before changing.
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/plain" = ["neovide.desktop"];
+      "application/pdf" = ["zathura.desktop"];
+      "image/*" = ["feh.desktop"];
+      "video/*" = ["mpv.desktop"];
+    };
+  };
+
   home.packages = [
     # pkgs.magnetic-catppuccin-gtk
   ];
