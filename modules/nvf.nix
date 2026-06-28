@@ -19,6 +19,7 @@
         opts = {
           mouse = "a";
           shell = "${pkgs.zsh}/bin/zsh";
+          guifont = "JetBrainsMono NF:14";
         };
         terminal.toggleterm = {
           enable = true;
@@ -30,6 +31,13 @@
             mode = "i"; # insert mode
             key = "<C-p>";
             action = ""; # This disables the keymap
+          }
+          {
+            key = "<leader>bb"; # Change this to whatever key you prefer
+            mode = "n"; # Normal mode
+            action = "<cmd>b#<cr>"; # The command to switch to the alternate/last buffer
+            silent = true; # Prevents the command from echoing in the command line
+            desc = "Switch to last/alternate buffer"; # Description for which-key
           }
         ];
         viAlias = false;
