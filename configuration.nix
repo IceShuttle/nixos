@@ -9,7 +9,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/zsh.nix
     ./modules/nvf.nix
     ./modules/tmux.nix
     ./modules/theme.nix
@@ -106,6 +105,7 @@
   programs.firefox.enable = true;
   programs.git.enable = true;
   programs.yazi.enable = true;
+  stylix.enable = true;
 
   programs.neovim = {
     enable = true;

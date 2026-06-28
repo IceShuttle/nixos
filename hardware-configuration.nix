@@ -33,11 +33,8 @@
   swapDevices = [
     {device = "/dev/mapper/luks-1f448602-b4ea-4d88-b633-91ac11646e8f";}
   ];
+  # services.tuned.enable = true;
 
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-  };
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

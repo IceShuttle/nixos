@@ -10,9 +10,13 @@
   home.homeDirectory = "/home/shivang";
   imports = [
     inputs.nix-doom-emacs-unstraightened.homeModule
+    ./modules/zsh.nix
   ];
 
   home.stateVersion = "26.05"; # Please read the comment before changing.
+
+  programs.direnv.enable = true;
+  programs.direnv.silent = true;
 
   xdg.mimeApps = {
     enable = true;
