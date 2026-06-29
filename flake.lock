@@ -585,7 +585,8 @@
         "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
         "oh-my-pi-nix": "oh-my-pi-nix",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "unstable": "unstable"
       }
     },
     "rust-overlay": {
@@ -749,6 +750,22 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "unstable": {
+      "locked": {
+        "lastModified": 1782467914,
+        "narHash": "sha256-pGvFkM8N0xEkIIXDe5YYfbEAvHrk4IxBrjB/x8OomhE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
         "type": "github"
       }
     }

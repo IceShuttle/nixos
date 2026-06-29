@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
+    unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nvf = {
       url = "github:NotAShelf/nvf";
@@ -29,6 +30,7 @@
   outputs = {
     self,
     nixpkgs,
+    unstable,
     determinate,
     home-manager,
     stylix,

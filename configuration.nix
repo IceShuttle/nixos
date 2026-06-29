@@ -105,7 +105,6 @@
   # Install firefox.
   programs.firefox.enable = true;
   programs.git.enable = true;
-  programs.yazi.enable = true;
   stylix.enable = true;
 
   programs.neovim = {
