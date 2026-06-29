@@ -13,6 +13,7 @@
     ./modules/nvf.nix
     ./modules/tmux.nix
     ./modules/theme.nix
+    ./modules/greetd.nix
   ];
 
   # Bootloader.
@@ -58,7 +59,7 @@
   services.upower.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
   # services.desktopManager.plasma6.enable = true;
 
   services.gvfs.enable = true;

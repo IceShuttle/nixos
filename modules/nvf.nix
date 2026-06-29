@@ -10,6 +10,7 @@
     settings = {
       vim = {
         utility.smart-splits.enable = true;
+        utility.direnv.enable = true;
         utility.oil-nvim.enable = true;
         clipboard = {
           enable = true;
