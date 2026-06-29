@@ -556,6 +556,27 @@
         "type": "github"
       }
     },
+    "oh-my-pi-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1782650693,
+        "narHash": "sha256-2FHu/XAIp8RQ0UwZbA6HrsuLn5Z+mzbKwHoiBElYzb0=",
+        "owner": "bjin",
+        "repo": "oh-my-pi-nix",
+        "rev": "5a4465faaf38ab4f121101a5978c1e4e5beec84a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bjin",
+        "repo": "oh-my-pi-nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "determinate": "determinate",
@@ -563,7 +584,29 @@
         "nix-doom-emacs-unstraightened": "nix-doom-emacs-unstraightened",
         "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
+        "oh-my-pi-nix": "oh-my-pi-nix",
         "stylix": "stylix"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "oh-my-pi-nix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782616745,
+        "narHash": "sha256-NN5B1cKBXF6h1Ec681gMGZ2o/99d7vKXAAfFNEvyOKA=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "b916d014dc57eb555f84e51172a82f7f6fb560d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "stylix": {

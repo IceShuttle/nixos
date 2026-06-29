@@ -2,6 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
+  inputs,
   config,
   pkgs,
   ...
@@ -152,6 +153,8 @@
 
     # Dev and standard utils
     pkgs.neovide
+    inputs.oh-my-pi-nix.packages.${pkgs.system}.oh-my-pi-bin
+    pkgs.jetbrains.rust-rover
     pkgs.tealdeer
     pkgs.bat
     pkgs.starship

@@ -33,14 +33,12 @@
     doomDir = ./doom.d;
   };
   home.packages = [
-    # pkgs.magnetic-catppuccin-gtk
   ];
 
   home.file = {
   };
 
   home.sessionVariables = {
-    # GTK_THEME = "Catppuccin-GTK-Dark";
     # EDITOR = "emacs";
   };
 

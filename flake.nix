@@ -20,6 +20,10 @@
       url = "github:marienz/nix-doom-emacs-unstraightened";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    oh-my-pi-nix = {
+      url = "github:bjin/oh-my-pi-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
