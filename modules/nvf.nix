@@ -1,8 +1,14 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
-}: {
+}: let
+  slang-plugin = pkgs.vimUtils.buildVimPlugin {
+    name = "slang.nvim";
+    src = inputs.slang-nvim;
+  };
+in {
   programs.nvf = {
     enable = true;
     # Your settings need to go into the settings attribute set
@@ -98,6 +104,20 @@
           yaml.enable = true;
         };
 
+        extraPlugins = {
+          "slang.nvim" = {
+            package = slang-plugin;
+            # Since slang.nvim handles its own setup, nvf will load it automatically,
+            # but you can specify a setup hook if needed.
+            setup = ''
+              require('slang').setup({
+                auto_format = true,
+                inlay_hints = true,
+                -- slangd_path = "${pkgs.shader-slang}/bin",
+              })
+            '';
+          };
+        };
         theme = {
           enable = true;
           name = "catppuccin";

@@ -25,6 +25,10 @@
       url = "github:bjin/oh-my-pi-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    slang-nvim = {
+      url = "github:pixelsandpointers/slang.nvim";
+      flake = false;
+    };
   };
 
   outputs = {

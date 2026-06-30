@@ -585,6 +585,7 @@
         "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
         "oh-my-pi-nix": "oh-my-pi-nix",
+        "slang-nvim": "slang-nvim",
         "stylix": "stylix",
         "unstable": "unstable"
       }
@@ -607,6 +608,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "slang-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770397730,
+        "narHash": "sha256-xZNIG3Z9XpJpkDN6eww/ynZ9feU//yyDieub2Rm3Qv4=",
+        "owner": "pixelsandpointers",
+        "repo": "slang.nvim",
+        "rev": "431b0df66bc7b6630a650f3a8d06ecc54e53ac13",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pixelsandpointers",
+        "repo": "slang.nvim",
         "type": "github"
       }
     },
