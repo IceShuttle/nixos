@@ -150,6 +150,8 @@
     # Intenet Utils
     pkgs.transmission_4-gtk
     pkgs.wget
+    pkgs.proton-vpn
+    pkgs.vivaldi
 
     # Dev and standard utils
     pkgs.neovide
