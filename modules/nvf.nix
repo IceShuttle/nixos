@@ -127,6 +127,10 @@ in {
           enable = true;
           highlight.enable = true;
           fold = false;
+          grammars = [
+            pkgs.vimPlugins.nvim-treesitter-parsers.slang
+            pkgs.vimPlugins.nvim-treesitter.grammarPlugins.kdl
+          ];
         };
       };
     };
