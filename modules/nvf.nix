@@ -68,7 +68,7 @@ in {
           enable = true;
           mappings = {
             lspDocumentSymbols = "<leader>ss";
-            lspReferences = "<leader>gr";
+            lspReferences = "gr";
           };
         };
         diagnostics = {
@@ -81,9 +81,9 @@ in {
           lightbulb.enable = true;
           mappings = {
             hover = "K";
-            goToDefinition = "<leader>gd";
-            goToDeclaration = "<leader>gD";
-            renameSymbol = "<leader>cr";
+            goToDefinition = "gd";
+            goToDeclaration = "gD";
+            renameSymbol = "cr";
           };
         };
         languages = {
@@ -113,7 +113,7 @@ in {
               require('slang').setup({
                 auto_format = true,
                 inlay_hints = true,
-                -- slangd_path = "${pkgs.shader-slang}/bin",
+                slangd_path = "${pkgs.shader-slang}/bin",
               })
             '';
           };
